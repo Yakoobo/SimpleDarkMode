@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Simple Dark Mode",
+  "version": "1.0",
+  "description": "Applies a simple dark mode filter to the current website.",
+  "permissions": [
+    "activeTab", // Allows interaction with the currently active tab
+    "scripting", // Allows injecting scripts and CSS
+    "storage"    // Allows storing the toggle state
+  ],
+  "action": {
+    "default_popup": "popup.html", // The HTML file for the popup window
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "background": {
+    "scripts": ["background.js"] // Script running in the background
+  },
+  "icons": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+  },
+   "web_accessible_resources": [
+    {
+      "resources": [ "dark-mode.css" ],
+      "matches": [ "<all_urls>" ] // Makes CSS accessible to content scripts
+    }
+  ]
+} 
