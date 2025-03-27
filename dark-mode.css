@@ -1,21 +1,32 @@
-/* Simple invert filter */
+/* Softer invert filter */
 html {
-    filter: invert(1) hue-rotate(180deg);
+    filter: invert(0.95) hue-rotate(180deg); /* Reduced inversion */
     background-color: #1a1a1a; /* Ensure bg is dark even before content loads */
     transition: filter 0.3s ease; /* Smooth transition */
 }
 
-/* Revert filter for images, videos, SVGs, and elements already using dark themes */
+/* Attempt to revert filter for IMAGES and SVGs by applying the same filter again */
 img,
+svg {
+    filter: invert(0.95) hue-rotate(180deg); /* Match the HTML filter */
+    transition: filter 0.3s ease; /* Match transition */
+}
+
+/* Attempt to revert filter for VIDEO, IFRAME, EMBED using a simple invert */
 video,
 iframe,
-svg,
+embed {
+    filter: invert(1); /* Simpler filter, might be better for video players */
+    transition: filter 0.3s ease; /* Match transition */
+}
+
+/* Also revert elements that seem to already have a dark background explicitly set */
 [style*="background-color: rgb(0, 0, 0)"],
 [style*="background-color: #000"],
 [style*="background: rgb(0, 0, 0)"],
 [style*="background: #000"]
 {
-    filter: invert(1) hue-rotate(180deg);
+    filter: invert(1); /* Use simple invert for these too */
     transition: filter 0.3s ease; /* Match transition */
 }
 
