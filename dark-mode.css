@@ -5,22 +5,4 @@ html {
     transition: filter 0.3s ease; /* Smooth transition */
 }
 
-/* Attempt to revert filter for media elements and elements with explicit dark backgrounds */
-img,
-svg,
-video,
-iframe,
-embed,
-[style*="background-color: rgb(0, 0, 0)"],
-[style*="background-color: #000"],
-[style*="background: rgb(0, 0, 0)"],
-[style*="background: #000"]
-{
-    filter: invert(1); /* Try to counteract the parent filter's inversion */
-    transition: filter 0.3s ease; /* Match transition */
-}
-
-/* Optional: Improve text contrast slightly */
-/* body {
-    color: #e0e0e0;
-} */ 
+/* Rules for img, svg, video, etc. removed - will be handled by content script */ 
